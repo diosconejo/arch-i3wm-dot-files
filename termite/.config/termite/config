@@ -1,0 +1,80 @@
+[options]
+allow_bold = true
+audible_bell = false
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+browser = firefox
+clickable_url = true
+# "system", "on" or "off"
+cursor_blink = system
+# "block", "underline" or "ibeam"
+cursor_shape = block
+dynamic_title = true
+# Hide links that are no longer valid in url select overlay mode
+filter_unmatched_urls = true
+font = Inconsolata 14
+#icon_name = terminal
+#geometry = 640x480
+# emit escape sequences for extra modified keys
+#modify_other_keys = false
+scroll_on_output = false
+scroll_on_keystroke = true
+mouse_autohide = false
+resize_grip = false
+scrollback_lines = 10000
+search_wrap = true
+# set size hints for the window
+#size_hints = false
+urgent_on_bell = true
+
+[colors]
+# Parker Brother colours
+background = #0F0E0F
+foreground = #A59461
+foreground_bold = #ffffff
+# black
+color0 = #322a2c
+color8 = #46423b
+#red
+color1 = #79220E
+color9 = #AA261F
+#green
+color2 = #344B1B
+color10 = #76550F
+#yellow
+color3 = #B45B00
+color11 = #B57F02
+#blue
+color4 = #434045
+color12 = #908862
+#magenta
+color5 = #5C1E25
+color13 = #624A35
+#cyan
+color6 = #394745
+color14 = #393E38
+#white
+color7 = #AE8842
+color15 = #A59058
+
+cursor = #1F1F1F
+cursor_foreground = #dcdccc
+# if unset, will reverse foreground and background
+highlight = #2f2f2f
+
+# 20% background transparency (requires a compositor)
+#background = rgba(63, 63, 63, 0.8)
+background = rgba(0,0,0,0.85)
+
+[hints]
+#font = Monospace 12
+#foreground = #dcdccc
+#background = #3f3f3f
+#active_foreground = #e68080
+#active_background = #3f3f3f
+#padding = 2
+#border = #3f3f3f
+#border_width = 0.5
+#roundness = 2.0
+
+# vim: set ai et fenc=utf-8 ft=dosini cms=#%s nu si sts=0 ts=9 tw=0 :
