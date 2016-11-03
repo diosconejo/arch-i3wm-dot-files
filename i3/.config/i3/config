@@ -168,8 +168,9 @@ exec xcompmgr -c -f -n
 exec brave
 #exec urxvtc
 #exec urxvtc
-exec termite
-exec termite --exec=fish
+#exec termite
+#exec termite --exec=fish
+exec tm
 exec thunderbird
 #exec kodi
 #exec VirtualBox

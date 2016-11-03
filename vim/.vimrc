@@ -1,11 +1,3 @@
-source /home/ale/.local/share/pearl/boot/vim/pearl.vim
-
-"Super-minimal pathogen 
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
-
-
 " perl 6 plugins long setup
 
 " git clone https://github.com/vim-perl/vim-perl.git ~/.vim/bundle/vim-perl
@@ -15,16 +7,18 @@ filetype plugin indent on
 " git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/synastic
 " git clone https://github.com/nxadm/syntastic-perl6.git ~/.vim/bundle/synastic-perl6
 " git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
-
+" cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive
+" git clone https://github.com/tpope/vim-git.git ~/.vim/bundle/vim-git
+" git clone git://github.com/tpope/vim-sensible.git
 
 "Enable extra features (e.g. when run systemwide). Must be before pathogen
 set nocompatible
 "Enable pathogen
-"execute pathogen#infect()
+execute pathogen#infect()
 "Enable syntax highlighting
-"syntax on
+syntax on
 "Enable indenting
-"filetype plugin indent on
+filetype plugin indent on
 
 "Set line wrapping
 set wrap
@@ -69,6 +63,7 @@ endif
 set autowrite
 
 "Ubuntu suggestions
+set number
 set showcmd    " Show (partial) command in status line.
 set showmatch  " Show matching brackets.
 set ignorecase " Do case insensitive matching
@@ -84,12 +79,13 @@ set mouse=a
 
 "-----------------------------------------------------------------------------"
 "External plugins
+let g:despacio_Sunset = 1
 
 "airline statusbar
 set laststatus=2
 set ttimeoutlen=50
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='luna'
+let g:airline_theme='ubaryd'
 "In order to see the powerline fonts, adapt the font of your terminal
 "In Gnome Terminal: "use custom font" in the profile. I use Monospace regular.
 let g:airline_powerline_fonts = 1
@@ -116,3 +112,9 @@ let g:syntastic_perl6_checkers = [ 'perl6latest']
 let g:syntastic_enable_perl6latest_checker = 1
 let g:syntastic_enable_perl_checker = 1
 "let g:syntastic_perl6_interpreter = '/home/claudio/bin/perl6'
+"
+"
+"set guifont=Font\ Awesome\ 14
+
+
+colorscheme despacio

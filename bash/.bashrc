@@ -1,5 +1,5 @@
-export PEARL_ROOT=/home/ale/.local/share/pearl
-source /home/ale/.local/share/pearl/boot/sh/pearl.sh
+export PEARL_ROOT=$HOME/.local/share/pearl
+source $HOME/.local/share/pearl/boot/sh/pearl.sh
 #
 # ~/.bashrc
 #
@@ -8,6 +8,7 @@ source /home/ale/.local/share/pearl/boot/sh/pearl.sh
 [[ $- != *i* ]] && return
 
 PS1='[\u@\h \W]\$ '
+alias tilde='echo "~"'
 
 ## Modified commands ## {{{
 alias diff='colordiff'              # requires colordiff package
@@ -19,6 +20,7 @@ alias mkdir='mkdir -p -v'
 alias nano='nano -w'
 alias ping='ping -c 5'
 alias dmesg='dmesg -HL'
+alias vi='vim'
 # }}}
 
 ## New commands ## {{{
@@ -51,7 +53,7 @@ alias ll='ls -trl'
 alias la='ll -A'
 alias lx='ll -BX'                   # sort by extension
 alias lz='ll -rS'                   # sort by size
-#alias lt='ll -rt'                   # sort by date
+alias lt='ll -rt'                   # sort by date
 alias lm='la | more'
 # }}}
 
@@ -138,17 +140,17 @@ alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as
 
 #alias restart='sudo shutdown -r now'
 #alias stop='sudo shutdown -h now'
-alias restart='i3-msg [class="Firefox"] kill & i3-msg [class="Thunderbird"] kill & sudo systemctl reboot'
-alias stop='i3-msg [class="Firefox"] kill & i3-msg [class="Thunderbird"] kill & sudo systemctl poweroff'
+alias restart='i3-msg [class="Firefox"] kill & i3-msg [class="brave"] kill & i3-msg [class="Thunderbird"] kill & sudo systemctl reboot'
+alias stop='i3-msg [class="Firefox"] kill & i3-msg [class="brave"] & i3-msg [class="Thunderbird"] kill & sudo systemctl poweroff'
 
 alias qemucdrom='qemu-kvm -enable-kvm -cdrom '
 
-alias android='simple-mtpfs /home/ale/Android'
-alias unandroid='fusermount -u /home/ale/Android'
+alias android='simple-mtpfs $HOME/Android'
+alias unandroid='fusermount -u $HOME/Android'
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export JAVA_HOME=/usr/lib/jvm/java-8-jdk
-export MW_HOME=/home/ale/Downloads/wls12130
+export MW_HOME=$HOME/Downloads/wls12130
 
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
@@ -243,16 +245,21 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'
 '}history -a; history -c; history -r"
 
-#PATH="/home/ale/perl5/bin${PATH+:}${PATH}"; export PATH;
-#PERL5LIB="/home/ale/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-#PERL_LOCAL_LIB_ROOT="/home/ale/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
-#PERL_MB_OPT="--install_base \"/home/ale/perl5\""; export PERL_MB_OPT;
-#PERL_MM_OPT="INSTALL_BASE=/home/ale/perl5"; export PERL_MM_OPT;
+alias tm="tmux attach || tmux new"
+#PATH="$HOME/perl5/bin${PATH+:}${PATH}"; export PATH;
+#PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
-PATH="/home/ale/perl5/bin${PATH+:}${PATH}"; export PATH;
-PERL5LIB="/home/ale/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/ale/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/ale/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/ale/perl5"; export PERL_MM_OPT;
+PATH="$HOME/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 MUSIC=/ssd_ntfs/iTunesMedia/Music
+TERMINAL=termite; export TERMINAL
+FA_UPLOAD=
+FA_DOWNLOAD=
+FA_CLOUD=
