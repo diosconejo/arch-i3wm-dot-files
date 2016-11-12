@@ -167,7 +167,8 @@ exec variety
 exec udiskie --tray
 exec setxkbmap gb
 exec xcompmgr -c -f -n
-exec --no-startup-id redshift-gtk
+#exec --no-startup-id redshift-gtk
+#exec redshift # systemctl --user enabled redshift
 exec xrandr --output VGA1 --primary 
 exec brave
 exec termite
