@@ -1,9 +1,9 @@
 setxkbmap gb              &
 #urxvtd -q -o -f           &
-~/.dropbox-dist/dropboxd  &
-dropbox                   &
-./wallpapers.shuffle.sh   &
-variety                   &
+#~/.dropbox-dist/dropboxd  &
+#dropbox                   &
+#./wallpapers.shuffle.sh   &
+#variety                   &
 udiskie --tray            &
 #pasystray                 &
 xrdb -merge ~/.Xresources &

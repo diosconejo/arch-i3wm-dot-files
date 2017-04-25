@@ -155,13 +155,14 @@ bindsym $mod+Shift+Tab workspace prev_on_output
 new_window 1pixel
 
 # Assign URxvt terminals to workspace 2
-assign [class="Firefox"] 1
+assign [class="Firefox"] 0
 assign [class="brave"] 1
 assign [class="URxvt"] 2
 assign [class="Termite"] 2
 assign [class="Thunderbird"] 3
 assign [class="VirtualBox"] 4
 assign [class="Kodi"] 5
+assign [class="Gnumeric"] 9
 
 exec variety
 exec udiskie --tray
@@ -172,7 +173,7 @@ exec xcompmgr -c -f -n
 exec xrandr --output VGA1 --primary 
 exec brave
 exec termite
-exec thunderbird
+#exec thunderbird # excessive IO 2GB/day !!!!
 
 #~/.dropbox-dist/dropboxd  &
 #dropbox                   &
