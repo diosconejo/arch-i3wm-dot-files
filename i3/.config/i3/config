@@ -116,12 +116,22 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+#
+# # Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+#
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# Lock after timeout
+exec --no-startup-id "~/.config/i3/autolock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -155,33 +165,90 @@ bindsym $mod+Shift+Tab workspace prev_on_output
 new_window 1pixel
 
 # Assign URxvt terminals to workspace 2
-assign [class="Firefox"] 0
-assign [class="brave"] 1
+#assign [class="Firefox"] 0
+#assign [class="brave"] 1
+assign [class="Chromium"] 1
+assign [class="Google-chrome"] 1
 assign [class="URxvt"] 2
-assign [class="Termite"] 2
-assign [class="Thunderbird"] 3
+#assign [class="Termite"] 2
+#assign [class="Terminator"] 2
+#assign [class="Thunderbird"] 3
+assign [class="Spacefm"] 3
 assign [class="VirtualBox"] 4
+assign [class="Atom"] 4
 assign [class="Kodi"] 5
+assign [class="Amule"] 8
+assign [class="Transmission"] 8
 assign [class="Gnumeric"] 9
 
-exec variety
-exec udiskie --tray
-exec setxkbmap gb
-exec xcompmgr -c -f -n
-#exec --no-startup-id redshift-gtk
-#exec redshift # systemctl --user enabled redshift
-exec xrandr --output VGA1 --primary 
-exec brave
-exec termite
-#exec thunderbird # excessive IO 2GB/day !!!!
+set $ws1  "1:  "
+set $ws2  "2:  "
+#set $ws3  "3:  "
+#set $ws4  "4:  "
+#set $ws5  "5:  "
+#set $ws6  "6:  "
+#set $ws7  "7:  "
+#set $ws8  "8:  "
+#set $ws10 "10:  "
 
+set $default_gaps_inner 0
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+workspace $ws1 gaps inner 0
+workspace $ws1 gaps outer 0
+#workspace $ws9 gaps inner 0
+#workspace $ws9 gaps outer 0
+#workspace $ws10 gaps inner 0
+#workspace $ws10 gaps outer 0
+
+
+workspace_auto_back_and_forth yes
+force_display_urgency_hint 0 ms
+focus_on_window_activation urgent
+
+floating_minimum_size -1 x -1
+floating_maximum_size -1 x -1
+
+font pango:Hack, FontAwesome 12
+#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
+client.unfocused        $black      $black      $white      $darkblack  $darkblack
+client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+client.background       $black
+
+
+# in .xinitrc
+#exec xrandr --output VGA1 --primary 
+#xrandr --output VGA1 --primary &
 #~/.dropbox-dist/dropboxd  &
 #dropbox                   &
-#./wallpapers.shuffle.sh   &
-#xrdb -merge ~/.Xresources &
-#xrandr --output VGA1 --primary &
 ##exec i3 -V >> ~/.i3/i3log 2>&
-#exec i3
+exec xrdb -merge ~/.Xresources 
+#exec setxkbmap gb
+exec amule
+#./wallpapers.shuffle.sh   &
+#exec ./exe/wallpapers.shuffle.sh
+#exec variety
+exec udiskie --tray
+#exec xcompmgr -c -f -n
+exec compton -c
+#exec urxvt -e bash -c 'tmux attach|tmux new'
+#exec google-chrome-stable
+exec chromium
+exec urxvt -e dvtm 
+exec urxvt
+exec redshift -l 39.429391:-0.422225 
+exec watch -n 900 nitrogen --random --set-scaled /ntfs/wallpapers/Downloaded by Variety/
+
+#performance no blue
+#exec blueman-applet
+# excessive IO 2GB/day !!!!
+#exec thunderbird 
+
+for_window [class="Amule"] move scratchpad
 
 default_orientation vertical
 
@@ -196,7 +263,7 @@ bar {
         colors {
                 background #101010
         }
-        tray_output primary
+#        tray_output primary
 }
 
 

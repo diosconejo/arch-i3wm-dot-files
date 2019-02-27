@@ -1,4 +1,4 @@
-urxvt*font:             xft:Inconsolata:size=13:antialias=true:hinting=true
+urxvt*font:             xft:Inconsolata:size=14:antialias=true:hinting=true
 urxvt*letterSpace: -1.5
 
 ! Parker Brothers colors
@@ -53,9 +53,10 @@ urxvt*color15:   #A59058
 urxvt*transparent: true
 urxvt*shading: 15
 
-URxvt.perl-ext-common:  default,matcher,selection-to-clipboard,readline
-URxvt.url-launcher:      /usr/bin/firefox
+URxvt.perl-ext-common:  default,clipboard,matcher,readline
+URxvt.url-launcher:      /usr/bin/google-chrome-stable
 URxvt.matcher.button:   1
+URrxvt.matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-
 
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry

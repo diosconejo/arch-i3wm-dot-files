@@ -32,6 +32,10 @@ alias pgg='ps -Af | grep'           # requires an argument
 alias ..='cd ..'
 # }}}
 
+alias plex='systemctl start plexmediaserver.service'
+alias pvoxy='systemctl start privoxy.service'
+
+alias rsync='rsync -r -a'
 # Privileged access
 if [ $UID -ne 0 ]; then
     alias sudo='sudo '
@@ -103,16 +107,18 @@ extract () {
    fi
  }
 alias pacsyy='sudo pacman -Syy '
-alias pacsyu='sudo pacman -Syu '
-alias pacs='sudo pacman -S '
-alias pacss='sudo pacman -Ss '
+alias pacsyu='pacaur -Syu'
+alias pacs='pacaur -S '
+alias pacss='sudo pacaur -Ss '
 alias pacrsn='sudo pacman -Rsn '
-alias pacqs='sudo pacman -Qs '
-alias pacsc='sudo pacman -Sc '
+alias pacqs='sudo pacaur -Qs '
+alias pacsc='pacaur -Sc '
+#alias pacsc='sudo pacman -Sc '
 #tbd alias pacsc='sudo pacman '
 alias x='startx '
 alias cal='cal -m '
 
+alias fox='firefox --private-window'
 # Pacman alias examples
 #alias pacupg='sudo pacman -Syu'	# Synchronize with repositories and then upgrade packages that are out of date on the local system.
 #alias pacin='sudo pacman -S'		# Install specific package(s) from the repositories
@@ -134,23 +140,27 @@ alias pacro="pacman -Qtdq > /dev/null && sudo pacman -Rns \$(pacman -Qtdq | sed 
 / /g')"
 
 # Additional pacman alias examples
-alias pacupd='sudo pacman -Sy && sudo abs'         # Update and refresh the local package and ABS databases against repositories
+#alias pacupd='sudo pacman -Sy && sudo abs'         # Update and refresh the local package and ABS databases against repositories
 alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as dependencies
 #alias pacmir='sudo pacman -Syy'                    # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 
 
 #alias restart='sudo shutdown -r now'
 #alias stop='sudo shutdown -h now'
-alias restart='i3-msg [class="Firefox"] kill & i3-msg [class="brave"] kill & i3-msg [class="Thunderbird"] kill & sudo systemctl reboot'
-alias stop='i3-msg [class="Firefox"] kill & i3-msg [class="brave"] & i3-msg [class="Thunderbird"] kill & sudo systemctl poweroff'
+alias restart='i3-msg [class="google-chrome"] kill && sudo systemctl reboot'
+alias stop='i3-msg [class="google-chrome"] kill && sudo systemctl poweroff'
 
 alias qemucdrom='qemu-kvm -enable-kvm -cdrom '
 
 alias android='simple-mtpfs $HOME/Android'
 alias unandroid='fusermount -u $HOME/Android'
 
+alias calc='mate-calc'
+
+alias code='cd /ssd_ntfs/code && ls -trla'
+
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-export JAVA_HOME=/usr/lib/jvm/java-8-jdk
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
 export MW_HOME=$HOME/Downloads/wls12130
 
 if [ -f /etc/bash_completion ]; then
@@ -246,8 +256,11 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'
 '}history -a; history -c; history -r"
 
-alias tm="tmux attach || tmux new"
+#alias tm="tmux attach || tmux new"
 
+http_proxy="http://localhost:8118"
+https_proxy="https://localhost:8118"
+PATH=$HOME/exe:$PATH; export PATH
 PATH="$HOME/perl5/bin${PATH+:}${PATH}"; export PATH;
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
@@ -255,7 +268,12 @@ PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 MUSIC=/ssd_ntfs/iTunesMedia/Music
-TERMINAL=termite; export TERMINAL
+TERMINAL=urxvt; export TERMINAL
 FA_UPLOAD=
 FA_DOWNLOAD=
 FA_CLOUD=
+
+SYSTEMD_EDITOR='/usr/bin/vi'; export SYSTEMD_EDITOR;
+
+# start dvtm in all shells
+#[[ $TERM != "screen" ]] && dvtm && exit
