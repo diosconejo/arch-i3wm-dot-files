@@ -107,7 +107,7 @@ extract () {
    fi
  }
 alias pacsyy='sudo pacman -Syy '
-alias pacsyu='pacaur -Syu'
+alias pacsyu='pacaur -Syyu'
 alias pacs='pacaur -S '
 alias pacss='sudo pacaur -Ss '
 alias pacrsn='sudo pacman -Rsn '
@@ -154,10 +154,12 @@ alias qemucdrom='qemu-kvm -enable-kvm -cdrom '
 
 alias android='simple-mtpfs $HOME/Android'
 alias unandroid='fusermount -u $HOME/Android'
+alias googledrive="gcsf mount $HOME/gdrive -s $1"
+alias ungoogledrive='fusermount -u $HOME/gdrive'
 
 alias calc='mate-calc'
 
-alias code='cd /ssd_ntfs/code && ls -trla'
+#alias code='cd /ssd_ntfs/code && ls -trla'
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
@@ -249,6 +251,8 @@ trap EC ERR
 
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups  
+export HISTSIZE=10000
+export HISTFILESIZE=20000
 # append history entries..
 shopt -s histappend
 

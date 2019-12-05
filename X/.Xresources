@@ -1,4 +1,4 @@
-urxvt*font:             xft:Inconsolata:size=14:antialias=true:hinting=true
+urxvt*font:             xft:Inconsolata:size=17:antialias=true:hinting=true
 urxvt*letterSpace: -1.5
 
 ! Parker Brothers colors

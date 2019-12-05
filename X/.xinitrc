@@ -53,8 +53,11 @@ fi
 setxkbmap gb                   &
 # in /etc/lightdm/Xsession
 #xrdb -merge ~/.Xresources      &
-xrandr --output VGA1 --primary &
+#xrandr --output VGA1 --primary &
+xrandr --output HDMI1 --primary --scale 0.9x0.9 &
+xscreensaver -no-splash        &
 variety                        &
 exec i3
+#exec startxfce4
 #exec startkde
 #exec startlxde
