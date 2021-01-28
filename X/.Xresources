@@ -1,5 +1,6 @@
-urxvt*font:             xft:Inconsolata:size=17:antialias=true:hinting=true
-urxvt*letterSpace: -1.5
+!urxvt*font:        xft:Inconsolata condensed:size=17:antialias=true:hinting=true
+urxvt*font:        xft:Terminal:size=13:antialias=true:hinting=true
+urxvt*letterSpace: -1
 
 ! Parker Brothers colors
 !black
@@ -54,9 +55,13 @@ urxvt*transparent: true
 urxvt*shading: 15
 
 URxvt.perl-ext-common:  default,clipboard,matcher,readline
-URxvt.url-launcher:      /usr/bin/google-chrome-stable
+URxvt.url-select.launcher:     /usr/bin/chromium
+! urxvt.url-launcher:      /usr/bin/google-chrome-stable
 URxvt.matcher.button:   1
-URrxvt.matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-
+URxvt.matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
 
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry

@@ -1,5 +1,5 @@
-export PEARL_ROOT=$HOME/.local/share/pearl
-source $HOME/.local/share/pearl/boot/sh/pearl.sh
+#export PEARL_ROOT=$HOME/.local/share/pearl
+#source $HOME/.local/share/pearl/boot/sh/pearl.sh
 #
 # ~/.bashrc
 #
@@ -7,7 +7,7 @@ source $HOME/.local/share/pearl/boot/sh/pearl.sh
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-PS1='[\u@\h \W]\$ '
+PS1='[\W]\$ '
 alias tilde='echo "~"'
 
 ## Modified commands ## {{{
@@ -34,8 +34,12 @@ alias ..='cd ..'
 
 alias plex='systemctl start plexmediaserver.service'
 alias pvoxy='systemctl start privoxy.service'
-
 alias rsync='rsync -r -a'
+
+#work 
+alias dxssh='ssh -i $HOME/.ssh/DXaaS.ppk'
+alias team='sudo systemctl restart teamviewerd && sudo systemctl status teamviewerd' 
+
 # Privileged access
 if [ $UID -ne 0 ]; then
     alias sudo='sudo '
@@ -107,7 +111,7 @@ extract () {
    fi
  }
 alias pacsyy='sudo pacman -Syy '
-alias pacsyu='pacaur -Syyu'
+#alias pacsyu='/usr/bin/pacaur -Syyu'
 alias pacs='pacaur -S '
 alias pacss='sudo pacaur -Ss '
 alias pacrsn='sudo pacman -Rsn '
@@ -148,7 +152,9 @@ alias pacinsd='sudo pacman -S --asdeps'            # Install given package(s) as
 #alias restart='sudo shutdown -r now'
 #alias stop='sudo shutdown -h now'
 alias restart='i3-msg [class="google-chrome"] kill && sudo systemctl reboot'
-alias stop='i3-msg [class="google-chrome"] kill && sudo systemctl poweroff'
+alias stop='i3lock && sudo echo mem > /sys/power/state'
+alias halt='i3-msg [class="google-chrome"] kill && sudo systemctl poweroff'
+alias sleep='sudo systemctl hybrid-sleep'
 
 alias qemucdrom='qemu-kvm -enable-kvm -cdrom '
 
@@ -158,6 +164,7 @@ alias googledrive="gcsf mount $HOME/gdrive -s $1"
 alias ungoogledrive='fusermount -u $HOME/gdrive'
 
 alias calc='mate-calc'
+alias vlc='flatpak run org.videolan.VLC'
 
 #alias code='cd /ssd_ntfs/code && ls -trla'
 
@@ -261,6 +268,8 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'
 '}history -a; history -c; history -r"
 
 #alias tm="tmux attach || tmux new"
+export PKGDEST=/ssd_ntfs/pacaur/
+export SRCDEST=/ssd_ntfs/pacaur/
 
 http_proxy="http://localhost:8118"
 https_proxy="https://localhost:8118"
@@ -279,5 +288,6 @@ FA_CLOUD=
 
 SYSTEMD_EDITOR='/usr/bin/vi'; export SYSTEMD_EDITOR;
 
+XDG_CACHE_HOME='/ssd_ntfs/xdg_cache'
 # start dvtm in all shells
 #[[ $TERM != "screen" ]] && dvtm && exit
