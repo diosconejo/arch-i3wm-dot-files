@@ -40,7 +40,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+##bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -130,7 +130,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # i3lock
-bindsym Pause exec "~/.config/i3/scripts/elblogdelazaro.sh" &
+bindsym Pause exec "~/.config/i3/scripts/elblogdelazaro.sh" 
 
 # scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/shots/'
 
@@ -218,36 +218,30 @@ floating_maximum_size -1 x -1
 
 font pango:Hack, FontAwesome 12
 #                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
-client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
-client.unfocused        $black      $black      $white      $darkblack  $darkblack
-client.focused_inactive $black      $black      $white      $darkblack  $darkblack
-client.urgent           $darkred    $darkred    $black      $darkred    $darkred
-client.background       $black
+#client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
+#client.unfocused        $black      $black      $white      $darkblack  $darkblack
+#client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+#client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+#client.background       $black
 
 
-# in .xinitrc
-#exec xrandr --output VGA1 --primary 
-#xrandr --output VGA1 --primary &
-#~/.dropbox-dist/dropboxd  &
-#dropbox                   &
-##exec i3 -V >> ~/.i3/i3log 2>&
+exec setxkbmap gb
 exec xrdb -merge ~/.Xresources 
-#exec setxkbmap gb
-#exec amule
-#./wallpapers.shuffle.sh   &
-#exec ./exe/wallpapers.shuffle.sh
-#exec variety
-exec udiskie --tray
+exec redshift -l 39.429391:-0.422225 
 #exec xcompmgr -c -f -n
-exec compton -c
+#exec compton -c
+exec picom -c
+#exec amule
+exec udiskie --tray
+#exec min
 #exec urxvt -e bash -c 'tmux attach|tmux new'
 #exec google-chrome-stable
-exec urxvt # -e dvtm 
-exec urxvt
-exec redshift -l 39.429391:-0.422225 
+exec urxvt -fn 'xft:Inconsolata Nerd Font Mono:size=17' # -e dvtm 
+exec urxvt -fn 'xft:Inconsolata Nerd Font Mono:size=17'
+#exec variety
+#exec ./exe/wallpapers.shuffle.sh
 #exec watch -n 900 nitrogen --random --set-scaled /ntfs/wallpapers/ 
-exec "while true; do nitrogen --random --set-scaled /ntfs/wallpapers/ ; sleep 900; done"
-#exec min
+exec "while true; do nitrogen --random --set-scaled /d/wallpapers/ ; sleep 900; done"
 exec chromium
 #exec nautilus
 
@@ -260,19 +254,33 @@ for_window [class="Amule"] move scratchpad
 
 default_orientation vertical
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# class                 border  bground text    indicator child_border
+client.focused          #4C7899 #285577 #FFFFFF #2E9EF4   #285577
+client.focused_inactive #333333 #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #333333 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
 bar {
-        output HDMI1
-        #font pango:Oxygen regular 12
-        #status_command i3status
-        status_command i3blocks -c ~/.i3blocks.conf 
-        font pango:sans, awesome 13
-        colors {
-                background #101010
-        }
-#        tray_output primary
+  font pango:sans, awesome 16
+  status_command i3blocks -c ~/.i3blocks.conf 
+  colors {
+    background #000000
+    statusline #FFFFFF
+    separator  #666666
+
+    focused_workspace  #4C7899 #285577 #FFFFFF
+    active_workspace   #333333 #222222 #FFFFFF
+    inactive_workspace #333333 #222222 #888888
+    urgent_workspace   #2F343A #900000 #FFFFFF
+    binding_mode       #2F343A #900000 #FFFFFF
+  }
 }
+
+#bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 
 # Multimedia Keys
@@ -287,4 +295,4 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-bindsym Print exec scrot -e 'mv $f /ssd_ntfs/Screenshots'
+bindsym Print exec scrot -e 'mv $f /d/Screenshots'

@@ -1,5 +1,12 @@
-!urxvt*font:        xft:Inconsolata condensed:size=17:antialias=true:hinting=true
-urxvt*font:        xft:Terminal:size=13:antialias=true:hinting=true
+Xft.dpi: 96
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+urxvt*font:        xft:Inconsolata Nerd Font Mono:size=17:antialias=true:hinting=true
 urxvt*letterSpace: -1
 
 ! Parker Brothers colors
@@ -52,13 +59,13 @@ urxvt*color15:   #A59058
 *foreground:        #A59461
 
 urxvt*transparent: true
-urxvt*shading: 15
+urxvt*shading: 5
 
 URxvt.perl-ext-common:  default,clipboard,matcher,readline
 URxvt.url-select.launcher:     /usr/bin/chromium
-! urxvt.url-launcher:      /usr/bin/google-chrome-stable
 URxvt.matcher.button:   1
-URxvt.matcher.pattern.1:   \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-
+URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
 URxvt.clipboard.autocopy: true
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
@@ -193,10 +200,4 @@ URxvt.keysym.M-v: perl:clipboard:paste
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
-
-
-
-
-
-
 

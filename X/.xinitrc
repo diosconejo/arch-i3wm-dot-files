@@ -49,15 +49,14 @@ fi
 #udiskie --tray            &
 #pasystray                 &
 #xcompmgr                  &
-#exec i3 -V >> ~/.i3/i3log 2>&
-setxkbmap gb                   &
+picom                      &
 # in /etc/lightdm/Xsession
 #xrdb -merge ~/.Xresources      &
 #xrandr --output VGA1 --primary &
 xrandr --output HDMI1 --primary --scale 0.9x0.9 &
 xscreensaver -no-splash        &
-variety                        &
-exec i3
+exec i3 -V >> ~/.i3/i3log 2>&
+#exec i3
 #exec startxfce4
 #exec startkde
 #exec startlxde

@@ -1,0 +1,18 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda3
+UUID=blkidfortheabove /         	ext4      	rw,relatime	0 1
+
+# /dev/sda2
+UUID=blkidfortheabove none      	swap      	defaults  	0 0
+
+#/dev/sda6: 
+UUID=blkidfortheabove /home/arc       ext4            defaults        0 0
+
+#/d
+/dev/sda5 /d  ntfs-3g   uid=1000,gid=1000  0       0
+#/e
+/dev/sdb3 /e  ntfs-3g   uid=1000,gid=1000  0       0
+

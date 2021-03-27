@@ -166,7 +166,9 @@ alias ungoogledrive='fusermount -u $HOME/gdrive'
 alias calc='mate-calc'
 alias vlc='flatpak run org.videolan.VLC'
 
-#alias code='cd /ssd_ntfs/code && ls -trla'
+alias dfall='df -h | egrep "/dev|Used"'
+alias dpmsoff='xset s off -dpms'
+#alias code='cd /d/code && ls -trla'
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk
@@ -268,8 +270,8 @@ export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'
 '}history -a; history -c; history -r"
 
 #alias tm="tmux attach || tmux new"
-export PKGDEST=/ssd_ntfs/pacaur/
-export SRCDEST=/ssd_ntfs/pacaur/
+export PKGDEST=/d/pkgdest/
+export SRCDEST=/d/srcdest/
 
 http_proxy="http://localhost:8118"
 https_proxy="https://localhost:8118"
@@ -280,7 +282,7 @@ PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}";
 PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
-MUSIC=/ssd_ntfs/iTunesMedia/Music
+#MUSIC=/ext/iTunesMedia/Music
 TERMINAL=urxvt; export TERMINAL
 FA_UPLOAD=
 FA_DOWNLOAD=
@@ -288,6 +290,10 @@ FA_CLOUD=
 
 SYSTEMD_EDITOR='/usr/bin/vi'; export SYSTEMD_EDITOR;
 
-XDG_CACHE_HOME='/ssd_ntfs/xdg_cache'
+XDG_CACHE_HOME='/d/xdg_cache'
 # start dvtm in all shells
 #[[ $TERM != "screen" ]] && dvtm && exit
+
+#if [[ "$TERM" == *rxvt* ]]; then
+#   exec zsh
+#fi
