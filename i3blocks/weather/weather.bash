@@ -2,9 +2,9 @@
 # Based on http://openweathermap.org/current
 
 # ANONYMYZE BEFORE UPLOAD
-API_KEY="anonymized"
+API_KEY="20cf8c14b72a9a40b2a67e22627313f7"
 # Check on http://openweathermap.org/find
-CITY_ID="anonymized"
+CITY_ID="2509951"
 
 URGENT_LOWER=0
 URGENT_HIGHER=30

@@ -122,12 +122,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# i3lock
-bindsym Pause exec "~/.config/i3/scripts/elblogdelazaro.sh" 
-
-# Lock after timeout
-exec --no-startup-id autolock -time 17 -locker "~/.config/i3/scripts/i3ctl.sh" &
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -157,6 +151,31 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+Shift+Tab workspace prev_on_output
 
+#
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
+
+# Multimedia Keys
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+#bindsym XF86AudioMute exec amixer -q set Master mute
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# pause / play / next / previous
+#bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+
+bindsym Print exec scrot -e 'mv $f /d/Screenshots'
+
 new_window 1pixel
 
 # Assign URxvt terminals to workspace 2
@@ -167,15 +186,17 @@ assign [class="URxvt"] 2
 #assign [class="Termite"] 2
 #assign [class="Terminator"] 2
 assign [class="Spacefm"] 3
+assign [class="Org.gnome.Nautilus"] 3
 assign [class="VirtualBox"] 4
 assign [class="firefox"] 4
 #assign [class="Kodi"] 5
-assign [class="Org.gnome.Nautilus"] 5
-#assign [class="Amule"] 8
+assign [class="vlc"] 5
 assign [class="Gnumeric"] 6
 #assign [class="Emacs"] 7
-#assign [class="Transmission"] 8
 assign [class="Google-chrome"] 7
+#assign [class="Amule"] 8
+#assign [class="Transmission"] 8
+assign [class="Anydesk"] 9
 
 set $ws1  "1:  "
 set $ws2  "2:  "
@@ -208,14 +229,21 @@ floating_maximum_size -1 x -1
 
 font pango:Hack, FontAwesome 12
 
+# i3lock
+bindsym Pause exec "~/.config/i3/scripts/elblogdelazaro.sh" 
+# Lock after timeout
+exec --no-startup-id autolock -time 17 -locker "~/.config/i3/scripts/i3ctl.sh" &
+
 exec dex -ae i3
 #exec amule
+#exec --no-startup-id /usr/bin/pasystray &
 exec udiskie --tray &
+exec_always sbxkb &
 #exec min
 #exec urxvt -e bash -c 'tmux attach|tmux new'
 #exec google-chrome-stable
-exec urxvt &
-exec urxvt &
+exec --no-startup-id urxvt &
+exec --no-startup-id urxvt &
 #exec urxvt -fn 'xft:Inconsolata Nerd Font Mono:size=17' # -e dvtm 
 exec chromium &
 #exec nautilus
@@ -261,27 +289,3 @@ bar {
   }
 }
 
-#
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-#bindsym $mod+d exec "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10' -p 'dmenu prompt &gt;'"
-
-# Multimedia Keys
-#bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
-#bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
-#bindsym XF86AudioMute exec amixer -q set Master mute
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
-# pause / play / next / previous
-#bindsym XF86AudioPlay exec playerctl play-pause
-#bindsym XF86AudioNext exec playerctl next
-#bindsym XF86AudioPrev exec playerctl previous
-
-bindsym Print exec scrot -e 'mv $f /d/Screenshots'
