@@ -197,6 +197,7 @@ assign [class="Google-chrome"] 7
 #assign [class="Amule"] 8
 #assign [class="Transmission"] 8
 assign [class="Anydesk"] 9
+assign [class="GParted"] 0
 
 set $ws1  "1:  "
 set $ws2  "2:  "
