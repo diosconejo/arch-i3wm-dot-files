@@ -60,6 +60,7 @@ urxvt*color15:   #A59058
 
 urxvt*transparent: true
 urxvt*shading: 5
+URxvt.fading: 20
 
 URxvt.perl-ext-common: default,matcher,resize-font
 URxvt.url-launcher:     /usr/bin/chromium
@@ -93,11 +94,9 @@ URxvt.keysym.M-v: perl:clipboard:paste
 ! URxvt*scrollTtyKeypress:              boolean
 ! URxvt*scrollWithBuffer:               boolean
 ! URxvt*inheritPixmap:                  boolean
-! URxvt*transparent:                    boolean
 ! URxvt*tintColor:                      color
 ! URxvt*shading:                        number
 ! URxvt*blurRadius:                     HxV
-! URxvt*fading:                         number
 ! URxvt*fadeColor:                      color
 ! URxvt*utmpInhibit:                    boolean
 ! URxvt*urgentOnBell:                   boolean
@@ -110,24 +109,6 @@ URxvt.keysym.M-v: perl:clipboard:paste
 ! URxvt*cursorUnderline:                boolean
 ! URxvt*cursorBlink:                    boolean
 ! URxvt*pointerBlank:                   boolean
-! URxvt*background:                     color
-! URxvt*foreground:                     color
-! URxvt*color0:                         color
-! URxvt*color1:                         color
-! URxvt*color2:                         color
-! URxvt*color3:                         color
-! URxvt*color4:                         color
-! URxvt*color5:                         color
-! URxvt*color6:                         color
-! URxvt*color7:                         color
-! URxvt*color8:                         color
-! URxvt*color9:                         color
-! URxvt*color10:                        color
-! URxvt*color11:                        color
-! URxvt*color12:                        color
-! URxvt*color13:                        color
-! URxvt*color14:                        color
-! URxvt*color15:                        color
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
 ! URxvt*colorUL:                        color
