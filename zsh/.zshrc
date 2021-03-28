@@ -15,7 +15,7 @@ PROMPT='%F{blue}%1~%f %# '
 # aliases from bashrc
 alias tilde='echo "~"'
 alias diff='colordiff'              # requires colordiff package
-alias grep='grep --color=auto'
+alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 alias more='less'
 alias df='df -h'
 alias du='du -c -h'
@@ -56,11 +56,11 @@ alias :Q=' exit'
 alias :x=' exit'
 alias cd..='cd ..'
 alias pacsyy='sudo pacman -Syy '
-alias pacs='pacaur -S '
-alias pacss='sudo pacaur -Ss '
+alias pacs='sudo pacman -S '
+alias pacss='sudo pacman -Ss '
 alias pacrsn='sudo pacman -Rsn '
-alias pacqs='sudo pacaur -Qs '
-alias pacsc='pacaur -Sc '
+alias pacqs='sudo pacman -Qs '
+alias pacsc='sudo pacman -Sc '
 alias x='startx '
 alias cal='cal -m '
 alias fox='firefox --private-window'
@@ -95,7 +95,36 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
 
-eval $(dircolors $HOME/.dircolors)
+eval $(dircolors $HOME/dotfiles/.dircolors)
 
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+
+setopt  autocd autopushd 
+autoload -U compinit
+compinit
+
+alias g=git
+alias ga='git add'
+alias gapa='git add --patch'
+alias gap='git apply'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+alias gau='git add --update'
+alias gstp='git stash pop'
+alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+alias gcs='git commit -S'
+alias glg='git log --stat'
+
+alias d='dirs -v | head -10'
+alias 1='cd -'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'

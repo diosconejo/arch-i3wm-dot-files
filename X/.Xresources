@@ -61,11 +61,16 @@ urxvt*color15:   #A59058
 urxvt*transparent: true
 urxvt*shading: 5
 
-URxvt.perl-ext-common:  default,clipboard,matcher,readline
-URxvt.url-select.launcher:     /usr/bin/chromium
+URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.url-launcher:     /usr/bin/chromium
 URxvt.matcher.button:   1
+URxvt.matcher.rend.0: Uline Bold fg5
 URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
+URxvt.perl-ext: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
 URxvt.clipboard.autocopy: true
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
