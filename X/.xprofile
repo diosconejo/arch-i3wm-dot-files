@@ -1,0 +1,5 @@
+export XDG_CONFIG_HOME=$HOME/.config
+picom & 
+setxkbmap gb &
+sbxkb &
+xrdb -merge ~/.Xresources &
